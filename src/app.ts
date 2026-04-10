@@ -5,6 +5,7 @@ import { env } from './config/env'
 import { errorMiddleware } from './middlewares/error.middleware'
 import authRoutes from './modules/auth/auth.routes'
 import sellersRoutes from './modules/sellers/sellers.routes'
+import productsRoutes from './modules/products/products.routes'
 
 const app = express()
 
@@ -28,6 +29,7 @@ app.get('/api/health', (_req, res) => {
 
 app.use('/api/auth', authRoutes)
 app.use('/api/seller', sellersRoutes)
+app.use('/api/seller/products', productsRoutes)
 
 app.use(errorMiddleware)
 
