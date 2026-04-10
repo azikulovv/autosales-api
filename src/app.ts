@@ -3,6 +3,7 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import { env } from './config/env'
 import { errorMiddleware } from './middlewares/error.middleware'
+import authRoutes from './modules/auth/auth.routes'
 
 const app = express()
 
@@ -23,6 +24,8 @@ app.get('/api/health', (_req, res) => {
     message: 'AutoSales API is running',
   })
 })
+
+app.use('/api/auth', authRoutes)
 
 app.use(errorMiddleware)
 
