@@ -6,6 +6,8 @@ import { errorMiddleware } from './middlewares/error.middleware'
 import authRoutes from './modules/auth/auth.routes'
 import sellersRoutes from './modules/sellers/sellers.routes'
 import productsRoutes from './modules/products/products.routes'
+import catalogRoutes from './modules/catalog/catalog.routes.js'
+import publicProductsRoutes from './modules/products/public-products.routes.js'
 
 const app = express()
 
@@ -30,6 +32,8 @@ app.get('/api/health', (_req, res) => {
 app.use('/api/auth', authRoutes)
 app.use('/api/seller', sellersRoutes)
 app.use('/api/seller/products', productsRoutes)
+app.use('/api/catalog', catalogRoutes)
+app.use('/api/products', publicProductsRoutes)
 
 app.use(errorMiddleware)
 
